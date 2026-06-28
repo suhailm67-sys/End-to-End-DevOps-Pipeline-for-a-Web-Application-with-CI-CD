@@ -17,3 +17,67 @@ DevOps teams require a CI/CD pipeline to streamline the development and deployme
 - Docker: For building container images as part of the CI pipeline.
 - Kubernetes CLI (kubectl): For managing and deploying resources to EKS within the Jenkins pipeline.
 - Jenkins Plugins: Docker, Kubernetes, and AWS CLI plugins for seamless integration with cloud infrastructure.
+
+## DevOps CI/CD Pipeline Architecture Flow
+### Overview
+This architecture demonstrates an automated CI/CD pipeline for deploying a Dockerized application on Amazon EKS using Jenkins. The pipeline automates the software delivery process from code commit to production deployment while ensuring scalability, reliability, and continuous monitoring.
+
+### Architecture Flow
+#### 1. Developer Commits Code
+The process begins when a developer pushes the latest application code to the GitHub repository. A GitHub webhook immediately notifies Jenkins about the new commit, triggering the CI/CD pipeline automatically.
+
+#### 2. Jenkins CI/CD Pipeline
+Jenkins acts as the central automation server and orchestrates the entire CI/CD workflow. Once triggered, Jenkins performs the following tasks:
+•	Checks out the latest source code from GitHub.
+•	Installs project dependencies.
+•	Executes automated unit tests to validate the application.
+•	Builds the application.
+•	Creates a Docker image of the application.
+•	Tags the Docker image with the appropriate version.
+This automated process ensures that only tested and validated code progresses through the deployment pipeline.
+
+#### 3. Docker Image Repository
+After successfully building the Docker image, Jenkins pushes the image to Amazon Elastic Container Registry (Amazon ECR). Amazon ECR serves as a secure and centralized container image repository from which Kubernetes can pull the latest application images.
+
+#### 4. Deployment to Amazon EKS
+Jenkins uses Kubernetes CLI (kubectl) to deploy the latest application version to the Amazon Elastic Kubernetes Service (EKS) cluster.
+The deployment includes:
+•	Updating Kubernetes Deployment resources.
+•	Creating or updating Kubernetes Services.
+•	Configuring Ingress resources for external access.
+Amazon EKS manages the application containers, automatically maintaining the desired number of running pods and ensuring high availability.
+
+#### 5. Application Load Balancing
+The Kubernetes Ingress Controller provisions an AWS Application Load Balancer (ALB). All incoming client requests are routed through the load balancer, which distributes traffic across multiple application pods.
+This provides:
+•	High availability
+•	Improved scalability
+•	Fault tolerance
+•	Efficient traffic distribution
+
+#### 6. End User Access
+Users access the application through the AWS Application Load Balancer. Requests are securely routed to the Kubernetes Service, which forwards them to one of the healthy application pods running within the EKS cluster.
+
+#### 7. Monitoring and Visualization
+To ensure operational visibility, Prometheus continuously collects metrics from the Kubernetes cluster, application pods, and services.
+Grafana connects to Prometheus and presents these metrics through interactive dashboards, allowing administrators to monitor:
+•	CPU utilization
+•	Memory usage
+•	Pod health
+•	Application availability
+•	Cluster performance
+•	Request and response metrics
+This monitoring solution enables proactive issue detection and performance optimization.
+
+### Key Benefits
+•	Fully automated Continuous Integration and Continuous Deployment.
+•	Faster and more reliable software releases.
+•	Containerized applications ensure consistency across environments.
+•	Kubernetes provides automatic scaling, self-healing, and high availability.
+•	AWS Application Load Balancer efficiently distributes incoming traffic.
+•	Amazon ECR provides secure storage for Docker images.
+•	Prometheus and Grafana provide real-time monitoring and performance insights.
+•	Reduced manual intervention, resulting in improved deployment efficiency and operational reliability.
+
+### Conclusion
+This architecture establishes a modern DevOps workflow by integrating GitHub, Jenkins, Docker, Amazon ECR, Amazon EKS, Kubernetes, Prometheus, and Grafana. The automated pipeline enables rapid, reliable, and scalable application deployments while ensuring continuous monitoring and simplified application management in the AWS cloud.

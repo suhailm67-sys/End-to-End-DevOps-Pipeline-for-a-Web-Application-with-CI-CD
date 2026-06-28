@@ -36,6 +36,7 @@ Jenkins acts as the central automation server and orchestrates the entire CI/CD 
 4. Builds the application.
 5. Creates a Docker image of the application.
 6. Tags the Docker image with the appropriate version.
+
 This automated process ensures that only tested and validated code progresses through the deployment pipeline.
 
 #### 3. Docker Image Repository
@@ -47,6 +48,7 @@ The deployment includes:
 1. Updating Kubernetes Deployment resources.
 2. Creating or updating Kubernetes Services.
 3. Configuring Ingress resources for external access.
+
 Amazon EKS manages the application containers, automatically maintaining the desired number of running pods and ensuring high availability.
 
 #### 5. Application Load Balancing
@@ -69,17 +71,18 @@ Grafana connects to Prometheus and presents these metrics through interactive da
 4. Application availability
 5. Cluster performance
 6. Request and response metrics
+
 This monitoring solution enables proactive issue detection and performance optimization.
 
 ### Key Benefits
-•	Fully automated Continuous Integration and Continuous Deployment.
-•	Faster and more reliable software releases.
-•	Containerized applications ensure consistency across environments.
-•	Kubernetes provides automatic scaling, self-healing, and high availability.
-•	AWS Application Load Balancer efficiently distributes incoming traffic.
-•	Amazon ECR provides secure storage for Docker images.
-•	Prometheus and Grafana provide real-time monitoring and performance insights.
-•	Reduced manual intervention, resulting in improved deployment efficiency and operational reliability.
+1. Fully automated Continuous Integration and Continuous Deployment.
+2. Faster and more reliable software releases.
+3. Containerized applications ensure consistency across environments.
+4. Kubernetes provides automatic scaling, self-healing, and high availability.
+5. AWS Application Load Balancer efficiently distributes incoming traffic.
+6. Amazon ECR provides secure storage for Docker images.
+7. Prometheus and Grafana provide real-time monitoring and performance insights.
+8. Reduced manual intervention, resulting in improved deployment efficiency and operational reliability.
 
 ### Conclusion
 This architecture establishes a modern DevOps workflow by integrating GitHub, Jenkins, Docker, Amazon ECR, Amazon EKS, Kubernetes, Prometheus, and Grafana. The automated pipeline enables rapid, reliable, and scalable application deployments while ensuring continuous monitoring and simplified application management in the AWS cloud.

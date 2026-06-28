@@ -30,13 +30,12 @@ The process begins when a developer pushes the latest application code to the Gi
 
 #### 2. Jenkins CI/CD Pipeline
 Jenkins acts as the central automation server and orchestrates the entire CI/CD workflow. Once triggered, Jenkins performs the following tasks:
-
-  •	Checks out the latest source code from GitHub.
-  •	Installs project dependencies.
-  •	Executes automated unit tests to validate the application.
-  •	Builds the application.
-  •	Creates a Docker image of the application.
-  •	Tags the Docker image with the appropriate version.
+1. Checks out the latest source code from GitHub.
+2. Installs project dependencies.
+3. Executes automated unit tests to validate the application.
+4. Builds the application.
+5. Creates a Docker image of the application.
+6. Tags the Docker image with the appropriate version.
   
 This automated process ensures that only tested and validated code progresses through the deployment pipeline.
 

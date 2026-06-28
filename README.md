@@ -19,6 +19,8 @@ DevOps teams require a CI/CD pipeline to streamline the development and deployme
 - Jenkins Plugins: Docker, Kubernetes, and AWS CLI plugins for seamless integration with cloud infrastructure.
 
 ## DevOps CI/CD Pipeline Architecture Flow
+<img width="1693" height="929" alt="DevOps CI-CD Pipeline Architecture Flow" src="https://github.com/user-attachments/assets/706e1f59-7761-43dd-b155-34c37d8c1055" />
+
 ### Overview
 This architecture demonstrates an automated CI/CD pipeline for deploying a Dockerized application on Amazon EKS using Jenkins. The pipeline automates the software delivery process from code commit to production deployment while ensuring scalability, reliability, and continuous monitoring.
 
@@ -28,12 +30,14 @@ The process begins when a developer pushes the latest application code to the Gi
 
 #### 2. Jenkins CI/CD Pipeline
 Jenkins acts as the central automation server and orchestrates the entire CI/CD workflow. Once triggered, Jenkins performs the following tasks:
+
   •	Checks out the latest source code from GitHub.
   •	Installs project dependencies.
   •	Executes automated unit tests to validate the application.
   •	Builds the application.
   •	Creates a Docker image of the application.
   •	Tags the Docker image with the appropriate version.
+  
 This automated process ensures that only tested and validated code progresses through the deployment pipeline.
 
 #### 3. Docker Image Repository

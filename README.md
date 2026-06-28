@@ -28,12 +28,12 @@ The process begins when a developer pushes the latest application code to the Gi
 
 #### 2. Jenkins CI/CD Pipeline
 Jenkins acts as the central automation server and orchestrates the entire CI/CD workflow. Once triggered, Jenkins performs the following tasks:
-•	Checks out the latest source code from GitHub.
-•	Installs project dependencies.
-•	Executes automated unit tests to validate the application.
-•	Builds the application.
-•	Creates a Docker image of the application.
-•	Tags the Docker image with the appropriate version.
+  •	Checks out the latest source code from GitHub.
+  •	Installs project dependencies.
+  •	Executes automated unit tests to validate the application.
+  •	Builds the application.
+  •	Creates a Docker image of the application.
+  •	Tags the Docker image with the appropriate version.
 This automated process ensures that only tested and validated code progresses through the deployment pipeline.
 
 #### 3. Docker Image Repository
@@ -42,18 +42,18 @@ After successfully building the Docker image, Jenkins pushes the image to Amazon
 #### 4. Deployment to Amazon EKS
 Jenkins uses Kubernetes CLI (kubectl) to deploy the latest application version to the Amazon Elastic Kubernetes Service (EKS) cluster.
 The deployment includes:
-•	Updating Kubernetes Deployment resources.
-•	Creating or updating Kubernetes Services.
-•	Configuring Ingress resources for external access.
+  •	Updating Kubernetes Deployment resources.
+  •	Creating or updating Kubernetes Services.
+  •	Configuring Ingress resources for external access.
 Amazon EKS manages the application containers, automatically maintaining the desired number of running pods and ensuring high availability.
 
 #### 5. Application Load Balancing
 The Kubernetes Ingress Controller provisions an AWS Application Load Balancer (ALB). All incoming client requests are routed through the load balancer, which distributes traffic across multiple application pods.
 This provides:
-•	High availability
-•	Improved scalability
-•	Fault tolerance
-•	Efficient traffic distribution
+  •	High availability
+  •	Improved scalability
+  •	Fault tolerance
+  •	Efficient traffic distribution
 
 #### 6. End User Access
 Users access the application through the AWS Application Load Balancer. Requests are securely routed to the Kubernetes Service, which forwards them to one of the healthy application pods running within the EKS cluster.
@@ -61,12 +61,12 @@ Users access the application through the AWS Application Load Balancer. Requests
 #### 7. Monitoring and Visualization
 To ensure operational visibility, Prometheus continuously collects metrics from the Kubernetes cluster, application pods, and services.
 Grafana connects to Prometheus and presents these metrics through interactive dashboards, allowing administrators to monitor:
-•	CPU utilization
-•	Memory usage
-•	Pod health
-•	Application availability
-•	Cluster performance
-•	Request and response metrics
+  •	CPU utilization
+  •	Memory usage
+  •	Pod health
+  •	Application availability
+  •	Cluster performance
+  •	Request and response metrics
 This monitoring solution enables proactive issue detection and performance optimization.
 
 ### Key Benefits
